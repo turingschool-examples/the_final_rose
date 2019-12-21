@@ -43,7 +43,7 @@ RSpec.describe "As a visitor" do
       expect(page).to have_content(@courtney.description)
     end
 
-    xit "i can click a link to see contestants" do
+    it "i can click a link to see contestants" do
       click_link 'Contestants'
       expect(current_path).to eq("/bachelorettes/#{@courtney.id}/contestants")
 

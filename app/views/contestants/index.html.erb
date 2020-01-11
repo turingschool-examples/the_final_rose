@@ -1,4 +1,8 @@
-<h1><%= "#{@bachelorette}'s Contestants"%></h1>
+<h1><%= "Bachelorette's Contestants"%></h1>
     <% @contestants.each do |contestant| %>
-      <%= contestant.name %>
-    <% end %>
+      <section id='contestant-<%=contestant.id%>'>
+        <%= contestant.name %><br>
+        <%= contestant.age %><br>
+        <%= contestant.hometown %><br>
+      </section><br>
+  <% end %>

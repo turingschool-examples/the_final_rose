@@ -7,8 +7,8 @@ RSpec.describe "As a visitor" do
     @tiffany = Bachelorette.create!(name: "Tiffany Grey", season_number: 14, season_description: "Tiffany Grey, Season 14 - The Most Sassiest Season Yet!")
 
     @danny = Contestant.create!(name: "Danny Moran", age: 26, hometown: "Denver, CO", bachelorette: @hannah)
+    @daniel = Contestant.create!(name: "Daniel Maran", age: 30, hometown: "Lakewood, CO", bachelorette: @hannah)
     @alex = Contestant.create!(name: "Alex Moron", age: 26, hometown: "Aurora, CO", bachelorette: @sarah)
-
   end
 
   it "Can see bachelorettes' information" do
@@ -24,12 +24,20 @@ RSpec.describe "As a visitor" do
 
     click_link("Bachelorette's Contestants")
     expect(current_path).to eq("/bachelorettes/#{@hannah.id}/contestants")
-    
-    expect(page).to have_content(@danny.name)
+
+    within "#contestant-#{@danny.id}" do
+      expect(page).to have_content(@danny.name)
+      expect(page).to have_content(@danny.age)
+      expect(page).to have_content(@danny.hometown)
+    end
+
+    within "#contestant-#{@daniel.id}" do
+      expect(page).to have_content(@daniel.name)
+      expect(page).to have_content(@daniel.age)
+      expect(page).to have_content(@daniel.hometown)
+    end
+
+save_and_open_page
     expect(page).to_not have_content(@alex.name)
   end
 end
-# I also see a link to see that bachelorette's contestants
-# When I click on that link
-# I'm taken to "/bachelorettes/:bachelorette_id/contestants"
-# and I can see only that bachelorette's contestants

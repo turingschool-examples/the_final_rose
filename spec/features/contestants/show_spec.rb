@@ -10,7 +10,8 @@ RSpec.describe "When visititing a contestants show page" do
       @outing_3 = Outing.create!(name: "Hotspring", location: "Japan", date: Date.parse("2019-10-11"))
 
       @heli_ride = ContestantOuting.create!(outing: @outing_1, contestant: @ben)
-
+      @kickball = ContestantOuting.create!(outing: @outing_2, contestant: @ben)
+      @hotspring = ContestantOuting.create!(outing: @outing_3, contestant: @ben)
     end
   it "I see single contestant's information" do
 
@@ -21,9 +22,9 @@ RSpec.describe "When visititing a contestants show page" do
     expect(page).to have_content(@ben.bachelorette.season_description)
 
     within "#outings" do
-      expect(page).to have_content(@outing_1.id)
-      expect(page).to have_content(@outing_2.id)
-      expect(page).to have_content(@outing_3.id)
+      expect(page).to have_content(@outing_1.name)
+      expect(page).to have_content(@outing_2.name)
+      expect(page).to have_content(@outing_3.name)
 
       click_link @outing_1.name
       expect(current_path).to eq("/outings/#{@outing_1.id}")

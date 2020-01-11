@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.describe "As a visitor" do
   before :each do
-    @hannah = Bachelorette.create!(name: "Hannah Brown", season_number: 15, season_description: "Hannah Brown, Season 15 - The Most Dramatic Season Yet!")
-    @sarah = Bachelorette.create!(name: "Sarah Green", season_number: 15, season_description: "Sarah Green, Season 15 - The Most Dramatic Season Yet!")
-    @tiffany = Bachelorette.create!(name: "Tiffany Grey", season_number: 14, season_description: "Tiffany Grey, Season 14 - The Most Sassiest Season Yet!")
+    @hannah = Bachelorette.create!(name: "Hannah Brown", season_number: 15, season_description: "Season 15 - The Most Dramatic Season Yet!")
+    @sarah = Bachelorette.create!(name: "Sarah Green", season_number: 15, season_description: "Season 15 - The Most Dramatic Season Yet!")
+    @tiffany = Bachelorette.create!(name: "Tiffany Grey", season_number: 14, season_description: "Season 14 - The Most Sassiest Season Yet!")
 
     @danny = Contestant.create!(name: "Danny Moran", age: 26, hometown: "Denver, CO", bachelorette: @hannah)
     @daniel = Contestant.create!(name: "Daniel Maran", age: 30, hometown: "Lakewood, CO", bachelorette: @hannah)
@@ -29,5 +29,7 @@ RSpec.describe "As a visitor" do
       expect(page).to have_content(@daniel.hometown)
     end
     expect(page).to_not have_content(@alex.name)
+    save_and_open_page
+    
   end
-end 
+end

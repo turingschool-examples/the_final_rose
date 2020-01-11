@@ -29,7 +29,5 @@ RSpec.describe "As a visitor" do
       expect(page).to have_content(@daniel.hometown)
     end
     expect(page).to_not have_content(@alex.name)
-    save_and_open_page
-    
   end
 end

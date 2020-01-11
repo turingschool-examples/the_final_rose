@@ -26,13 +26,13 @@ RSpec.describe "As a visitor" do
     expect(current_path).to eq("/bachelorettes/#{@hannah.id}/contestants")
 
     within "#contestant-#{@danny.id}" do
-      expect(page).to have_content(@danny.name)
+      expect(page).to have_link(@danny.name)
       expect(page).to have_content(@danny.age)
       expect(page).to have_content(@danny.hometown)
     end
 
     within "#contestant-#{@daniel.id}" do
-      expect(page).to have_content(@daniel.name)
+      expect(page).to have_link(@daniel.name)
       expect(page).to have_content(@daniel.age)
       expect(page).to have_content(@daniel.hometown)
     end

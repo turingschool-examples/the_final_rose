@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+hannah = Bachelorette.create!(name: "Hannah Brown", season_number: 17)
+tyler = hannah.contestants.create!(name: "Tyler Bigmouth", age: 29, hometown: "Somewhere in Ohio")
+steve = hannah.contestants.create!(name: "Steve Jeevee", age: 21, hometown: "TEXAS")

@@ -1,6 +1,8 @@
 <h3>Contestants</h3>
 <div id='attributes'>
   <% @contestants.each do |contestant| %>
-    <%= contestant.name %></br>
+    <%= link_to "#{contestant.name}, ", "/bachelorettes/#{@bachelorette.id}/contestants/#{contestant.id}" %>
+    <%=" Age: #{contestant.age}, " %>
+    <%= " Hometown: #{contestant.hometown}" %><br />
   <% end %>
 </div>

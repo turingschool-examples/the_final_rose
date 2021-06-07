@@ -12,10 +12,17 @@ RSpec.describe 'contestant index page,' do
 
   it 'displays contestant attributes' do
     within('#attributes') do
-      save_and_open_page
-      expect(page).to have_content(@contestant_1.name)
-      expect(page).to have_content(@contestant_2.name)
-      expect(page).to have_content(@contestant_3.name)
+      expect(page).to have_link(@contestant_1.name)
+      expect(page).to have_content(@contestant_1.age)
+      expect(page).to have_content(@contestant_1.hometown)
+
+      expect(page).to have_link(@contestant_2.name)
+      expect(page).to have_content(@contestant_2.age)
+      expect(page).to have_content(@contestant_2.hometown)
+
+      expect(page).to have_link(@contestant_3.name)
+      expect(page).to have_content(@contestant_3.age)
+      expect(page).to have_content(@contestant_3.hometown)
     end
   end
 end

@@ -1,0 +1,3 @@
+class BacheloretteContestant < ApplicationRecord 
+
+end

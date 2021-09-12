@@ -20,6 +20,7 @@ RSpec.describe 'outings show page' do
     outing_1 = Outing.create!(name: "Ice Skating", location: "Aurora", date: "03/21/1060")
     contestant_1 = outing_1.contestants.create!(name: "Tony", age: 35, hometown: "New York", bachelorette_id: bachelorette.id)
     contestant_2 = outing_1.contestants.create!(name: "Sam", age: 37, hometown: "Seattle", bachelorette_id: bachelorette.id)
+    contestant_3 = outing_1.contestants.create!(name: "Abraham", age: 40, hometown: "Israel", bachelorette_id: bachelorette.id)
 
     visit "/outings/#{outing_1.id}"
 

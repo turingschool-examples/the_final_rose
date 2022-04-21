@@ -3,7 +3,7 @@ class CreateOutings < ActiveRecord::Migration[5.2]
     create_table :outings do |t|
       t.string :name
       t.string :location
-      t.date :string
+      t.string :outing_date
 
       t.timestamps
     end

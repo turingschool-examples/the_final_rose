@@ -23,4 +23,22 @@ RSpec.describe 'contestant show page' do
 		expect(page).to_not have_content(bach2.description)
 	end
 
+
+	it 'has outings the contestant went on and the outing name is a link to outing show page' do 
+		bach1 = Bachelorette.create!(name: 'Amy', season_number: 12, description: 'great season!')
+		contest1 = bach1.contestants.create!(name: 'Bob', age: 30, hometown: 'Denver')
+		outing1 = Outing.create!(activity: 'Dinner')
+		outing2 = Outing.create!(activity: 'Movie')
+		outing3 = Outing.create!(activity: 'Leetcode problem')
+		ContestantOuting.create!(contestant: contest1, outing: outing1)
+		ContestantOuting.create!(contestant: contest1, outing: outing2)
+		ContestantOuting.create!(contestant: contest1, outing: outing3)
+require 'pry'; binding.pry
+		visit contestant_path(contest1.id)
+
+		expect(page).to have_content('Dinner')
+		expect(page).to have_content('Movie')
+		expect(page).to have_content('Leetcode problem')
+
+	end
 end

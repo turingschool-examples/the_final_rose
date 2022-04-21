@@ -6,5 +6,5 @@
 
 <h4>Outings:</h4>
 <% @contestant.outings.each do |outing| %>
-<%= link_to outing.activity, outing_path(outing.id) %>
+<%= link_to outing.name, outing_path(outing.id) %>
 <% end %>

@@ -27,9 +27,9 @@ RSpec.describe 'contestant show page' do
 	it 'has outings the contestant went on and the outing name is a link to outing show page' do 
 		bach1 = Bachelorette.create!(name: 'Amy', season_number: 12, description: 'great season!')
 		contest1 = bach1.contestants.create!(name: 'Bob', age: 30, hometown: 'Denver')
-		outing1 = Outing.create!(activity: 'Dinner')
-		outing2 = Outing.create!(activity: 'Movie')
-		outing3 = Outing.create!(activity: 'Leetcode problem')
+		outing1 = Outing.create!(name: 'Dinner')
+		outing2 = Outing.create!(name: 'Movie')
+		outing3 = Outing.create!(name: 'Leetcode problem')
 		ContestantOuting.create!(contestant: contest1, outing: outing1)
 		ContestantOuting.create!(contestant: contest1, outing: outing2)
 		ContestantOuting.create!(contestant: contest1, outing: outing3)

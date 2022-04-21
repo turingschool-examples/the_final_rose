@@ -12,7 +12,7 @@ RSpec.describe 'bachelorette contestants index page' do
 
 
 		visit bachelorette_contestants_path(bach1.id)
-save_and_open_page
+
 		expect(page).to have_content(contest1.name)
 		expect(page).to have_content(contest1.age)
 		expect(page).to have_content(contest1.hometown)

@@ -29,7 +29,7 @@ RSpec.describe 'bachelorettes show page' do
 
 		expect(current_path).to eq bachelorette_contestants_path(bach1.id)
 		#"/bachelorettes/#{bach1.id}/contestants"
-save_and_open_page
+
 		expect(page).to have_content(contest1.name)
 		expect(page).to have_content(contest2.name)
 		expect(page).to have_content(contest3.name)

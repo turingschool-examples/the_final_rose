@@ -3,3 +3,7 @@
 <p>Name: <%= @bachelorette.name %></p>
 <p>Season Number: <%= @bachelorette.season_number %></p>
 <p>Description: <%= @bachelorette.description %></p>
+
+<% if @bachelorette.contestants != [] %>
+<p>Average Age of Contestants: <%= @bachelorette.contestants.average_age.round(1) %></p>
+<% end %>

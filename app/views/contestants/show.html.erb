@@ -3,3 +3,8 @@
 
 <p>Name:<%= @contestant.name %></p>
 <p>Season <%= @contestant.bachelorette.season_number %> - <%= @contestant.bachelorette.description %></p>
+
+<h4>Outings:</h4>
+<% @contestant.outings.each do |outing| %>
+<%= link_to outing.activity, outing_path(outing.id) %>
+<% end %>

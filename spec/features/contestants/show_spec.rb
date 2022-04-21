@@ -33,12 +33,15 @@ RSpec.describe 'contestant show page' do
 		ContestantOuting.create!(contestant: contest1, outing: outing1)
 		ContestantOuting.create!(contestant: contest1, outing: outing2)
 		ContestantOuting.create!(contestant: contest1, outing: outing3)
-require 'pry'; binding.pry
+
 		visit contestant_path(contest1.id)
 
 		expect(page).to have_content('Dinner')
 		expect(page).to have_content('Movie')
 		expect(page).to have_content('Leetcode problem')
+
+		click_on 'Dinner'
+		expect(current_path).to eq outing_path(outing1.id)
 
 	end
 end

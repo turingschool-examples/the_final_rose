@@ -3,3 +3,16 @@
 <% @contestants.each do |contest| %>
 	<p>Name:<%= contest.name %>, Age: <%= contest.age %>, Hometown: <%= contest.hometown %></p>
 <% end %>
+
+<section id='hometowns'>
+<% if @contestants.unique_hometowns != [] %>	
+<p>These Contestants are from these hometowns: <%@contestants.unique_hometowns.each_with_index do |hometown, index| %>
+	<% if index == @contestants.unique_hometowns.count-1 %>
+		<%= hometown %>
+	<% else %>
+		<%= hometown %>, 
+	<% end %>
+<% end %>
+</p>
+<% end %>
+</section>

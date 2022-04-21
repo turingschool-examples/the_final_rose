@@ -27,4 +27,18 @@ RSpec.describe 'bachelorette contestants index page' do
 		expect(page).to_not have_content(contest4.hometown)
 	end
 
+	it 'displays unique hometowns of contestants' do 
+		bach1 = Bachelorette.create!(name: 'Amy', season_number: 12, description: 'great season!')
+		contest1 = bach1.contestants.create!(name: 'Bob', age: 30, hometown: 'Denver')
+		contest2 = bach1.contestants.create!(name: 'Jim', age: 32, hometown: 'NYC')
+		contest3 = bach1.contestants.create!(name: 'Mike', age: 30, hometown: 'Hawaii')
+		contest4 = bach1.contestants.create!(name: 'Mike2', age: 30, hometown: 'Hawaii')
+
+
+		visit bachelorette_contestants_path(bach1.id)
+		within('#hometowns') do 
+			expect(page).to have_content("These Contestants are from these hometowns: Denver, Hawaii, NYC")
+			expect(page).to have_content('Hawaii', count:1)
+		end
+	end
 end 

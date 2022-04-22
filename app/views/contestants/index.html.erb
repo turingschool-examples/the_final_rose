@@ -1,7 +1,7 @@
 <h1>List of Contestants</h1>
 
 <% @contestants.each do |contest| %>
-	<p>Name:<%= contest.name %>, Age: <%= contest.age %>, Hometown: <%= contest.hometown %></p>
+	<p>Name:<%=link_to contest.name, contestant_path(contest.id) %>, Age: <%= contest.age %>, Hometown: <%= contest.hometown %></p>
 <% end %>
 
 <section id='hometowns'>

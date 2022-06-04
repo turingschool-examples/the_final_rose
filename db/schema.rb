@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_052320) do
+ActiveRecord::Schema.define(version: 2022_06_04_171841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 2019_12_20_052320) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "contestant_outings", id: false, force: :cascade do |t|
+    t.bigint "contestant_id", null: false
+    t.bigint "outing_id", null: false
+    t.index ["contestant_id", "outing_id"], name: "index_contestant_outings_on_contestant_id_and_outing_id"
+    t.index ["outing_id", "contestant_id"], name: "index_contestant_outings_on_outing_id_and_contestant_id"
+  end
+
   create_table "contestants", force: :cascade do |t|
     t.string "name"
     t.integer "age"
@@ -30,6 +37,12 @@ ActiveRecord::Schema.define(version: 2019_12_20_052320) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bachelorette_id"], name: "index_contestants_on_bachelorette_id"
+  end
+
+  create_table "outings", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.date "date"
   end
 
   add_foreign_key "contestants", "bachelorettes"

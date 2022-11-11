@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_11_181549) do
+ActiveRecord::Schema.define(version: 2022_11_11_192421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2022_11_11_181549) do
     t.integer "season_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "season_description"
   end
 
   create_table "contestant_outings", force: :cascade do |t|

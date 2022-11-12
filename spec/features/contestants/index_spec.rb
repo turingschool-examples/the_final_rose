@@ -24,8 +24,6 @@ RSpec.describe 'Bachelorettes Contestants Index Page' do
                 click_on @contestant1.name 
                 expect(current_path).to eq contestant_path(@contestant1)
                 expect(page).to have_content @contestant1.name
-                expect(page).to have_content "Age: #{@contestant1.age}"
-                expect(page).to have_content "Hometown: #{@contestant1.hometown}" 
                 expect(page).to_not have_content @contestant2.name 
             end 
         end 

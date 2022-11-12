@@ -32,5 +32,9 @@ RSpec.describe 'Bachelorette Show Page' do
                 end
             end
         end
+
+        it 'average age of all of the bachelorette contestants' do 
+            expect(page).to have_content "Average Age of Contestants: 31.33"
+        end 
     end 
 end 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Contestant Show Page' do 
+RSpec.describe 'Outing Show Page' do 
     before do 
         @bachelorette = Bachelorette.create(name: 'Gwheniphyr Ruby', season_number: 80, season_description: 'the one at the haunted trailor park')
         @contestant1 = @bachelorette.contestants.create(name: 'Brad Guy', age: 29, hometown: 'Los Angeles')
@@ -19,30 +19,23 @@ RSpec.describe 'Contestant Show Page' do
         ContestantOuting.create(contestant_id: @contestant3.id, outing_id: @outing3.id)
         ContestantOuting.create(contestant_id: @contestant1.id, outing_id: @outing3.id)
 
-        visit "/contestants/#{@contestant1.id}"
+        visit "/outings/#{@outing1.id}"
     end 
-    
+
     describe 'display' do 
-        it 'name, season number and season description' do 
-            expect(page).to have_content @contestant1.name
-            expect(page).to have_content "Season 80: the one at the haunted trailor park"
+        it 'name, location, date and total count of contestants that attended' do 
+            expect(page).to have_content @outing1.name
+            expect(page).to have_content "Location: #{@outing1.location}"
+            expect(page).to have_content "Date: #{@outing1.date}"
+            expect(page).to have_content "Count of Contestants: 2"
         end 
 
-        it 'list of all the outings the contestant was on' do 
-            within "#outings" do 
-                expect(page).to have_content 'Face Planting'
-                expect(page).to_not have_content 'Truth or Dare'
-                expect(page).to have_content 'Eating Contest'
-            end
-        end 
-
-        describe 'link to Outing Show page' do 
-            it 'outing name links to the respective outings show page' do 
-                within "#outings" do 
-                    click_on 'Face Planting'
-                    expect(current_path).to eq "/outings/#{@outing1.id}"
-                end
-            end
+        it 'list of all contestants that attended that outing' do
+            within "#contestants" do 
+                expect(page).to have_content @contestant1.name
+                expect(page).to have_content @contestant2.name
+                expect(page).to_not have_content @contestant3.name
+            end 
         end
     end 
 end 

@@ -4,7 +4,7 @@ RSpec.describe 'Bachelorettes Contestants Index Page' do
     before do 
         @bachelorette = Bachelorette.create(name: 'Gwheniphyr Ruby', season_number: 80, season_description: 'the one at the haunted trailor park')
         @contestant1 = @bachelorette.contestants.create(name: 'Brad Guy', age: 29, hometown: 'Los Angeles')
-        @contestant2 = @bachelorette.contestants.create(name: 'Tyler Dude', age: 31, hometown: 'New York')
+        @contestant2 = @bachelorette.contestants.create(name: 'Tyler Dude', age: 31, hometown: 'New Jersey')
         @contestant3 = @bachelorette.contestants.create(name: 'Steve Bro', age: 34, hometown: 'New Jersey')
 
         visit bachelorette_contestants_path(@bachelorette)
@@ -26,6 +26,12 @@ RSpec.describe 'Bachelorettes Contestants Index Page' do
                 expect(page).to have_content @contestant1.name
                 expect(page).to_not have_content @contestant2.name 
             end 
+        end 
+
+        it 'UNIQUE list of hometowns from the contestants' do 
+            within "#hometowns" do 
+                expect(page).to have_content "These Contestants are from these hometowns: Los Angeles, New Jersey"
+            end
         end 
     end
 end 

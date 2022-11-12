@@ -5,3 +5,7 @@
         <p>Name: <%= link_to contestant.name, "/contestants/#{contestant.id}" %>, Age: <%= contestant.age %>, Hometown: <%= contestant.hometown %></p>
     <% end %>
 </div>
+
+<div id="hometowns">
+    <h3>These Contestants are from these hometowns: <%= @bachelorette.contestant_hometowns %></h3>
+</div>

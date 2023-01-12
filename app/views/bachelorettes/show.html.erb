@@ -2,3 +2,5 @@
 
 <h3>Season: <%= @bachelorette.season_number %></h3>
 <p><%= @bachelorette.description %></p>
+
+<%= link_to "#{@bachelorette.name}'s Contestants", bachelorette_contestants_path(@bachelorette.id) %>

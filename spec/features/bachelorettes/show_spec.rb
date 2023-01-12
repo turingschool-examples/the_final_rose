@@ -15,10 +15,14 @@ RSpec.describe "Bachelorette Show page", type: :feature do
       expect(page).to_not have_content("#{@bachelorette_2.name}")
     end
 
-    it 'see a link to see the bachelorettes contestants'
+    it 'see a link to see the bachelorettes contestants' do
+      visit "/bachelorettes/#{@bachelorette_2.id}"
+
+      expect(page).to have_link("#{@bachelorette_2.name}'s Contestants")
+    end
 
     it "when contestant link is clicked, user is taken to /bachelorettes/:bachelorette_id/contestants"
-
+    #:href bachelorette_contestants_path(@bachelorette_2.id)
     #build spec for /bach/bach_id/contestants
   end
 end

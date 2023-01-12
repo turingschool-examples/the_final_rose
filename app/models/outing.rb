@@ -1,6 +1,6 @@
 class Outing <ApplicationRecord
-  has_many :contestant_outings
-  has_many :contestants, through: :contestant_outings
+  has_many :outing_contestants
+  has_many :contestants, through: :outing_contestants
 
   validates_presence_of :title
   validates_presence_of :location

@@ -1,0 +1,7 @@
+<h1><%= @bachelorette.name %>'s Contestants</h1>
+
+<% @contestants.each do |contestant| %>
+  <%= contestant.name%>
+  Age: <%= contestant.age%>
+  Hometown: <%= contestant.hometown%>
+<% end %>

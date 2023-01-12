@@ -2,8 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "Bachelorette Show page", type: :feature do
   describe 'when visiting /bachelorettes/:id' do
-    it "see the bachelorette's name, season number, descriptiong of season they were on" do
+    before :each do
+      load_test_data
+    end
 
+    it "see the bachelorette's name, season number, description of season they were on" do
+      visit "/bachelorettes/#{@bachelorette_1.id}"
+
+      expect(page).to have_content("#{@bachelorette_1.name}")
+      expect(page).to have_content("Season: #{@bachelorette_1.season_number}")
+      expect(page).to have_content("#{@bachelorette_1.description}")
+      expect(page).to_not have_content("#{@bachelorette_2.name}")
     end
 
     it 'see a link to see the bachelorettes contestants'

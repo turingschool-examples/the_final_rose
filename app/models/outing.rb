@@ -3,4 +3,8 @@ class Outing < ApplicationRecord
   has_many :contestants, through: :contestant_outings 
   
   validates_presence_of :name
+
+  def count_contestants
+    contestants.size
+  end
 end

@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2023_04_23_155822) do
 
   create_table "outings", force: :cascade do |t|
     t.string "name"
+    t.string "location"
+    t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_052320) do
+ActiveRecord::Schema.define(version: 2023_04_23_155822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2019_12_20_052320) do
   create_table "bachelorettes", force: :cascade do |t|
     t.string "name"
     t.integer "season_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "season_id"
+    t.index ["season_id"], name: "index_bachelorettes_on_season_id"
+  end
+
+  create_table "contestant_outings", force: :cascade do |t|
+    t.bigint "contestant_id"
+    t.bigint "outing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,5 +41,19 @@ ActiveRecord::Schema.define(version: 2019_12_20_052320) do
     t.index ["bachelorette_id"], name: "index_contestants_on_bachelorette_id"
   end
 
+  create_table "outings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.integer "season_number"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "bachelorettes", "seasons"
   add_foreign_key "contestants", "bachelorettes"
 end

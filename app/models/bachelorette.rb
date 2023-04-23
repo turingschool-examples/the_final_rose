@@ -8,4 +8,8 @@ class Bachelorette <ApplicationRecord
   def average_age
     contestants.average("age")
   end
+
+  def contestant_hometowns
+    self.contestants.select("hometown").distinct.pluck("hometown").join(", ")
+  end
 end

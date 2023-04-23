@@ -18,5 +18,11 @@ RSpec.describe "bachelorettes/contestants_index", type: :feature do
         expect(page).to have_content(contestant.hometown)
       end
     end
+
+    it "shows the contestants' hometowns" do
+      visit bachelorette_contestants_path(@bach2)
+
+      expect(page).to have_content("These Contestants are from these hometowns: Loc 4, Loc 5, Loc 6")
+    end
   end
 end

@@ -20,5 +20,11 @@ RSpec.describe Bachelorette, type: :model do
       expect(@bach2.average_age).to eq(40)
       expect(@bach3.average_age).to eq(55)
     end
+
+    it "#contestant_hometowns" do
+      expect(@bach1.contestant_hometowns).to eq("Loc 1, Loc 2, Loc 3")
+      expect(@bach2.contestant_hometowns).to eq("Loc 4, Loc 5, Loc 6")
+      expect(@bach3.contestant_hometowns).to eq("Loc 7, Loc 8, Loc 9")
+    end
   end
 end

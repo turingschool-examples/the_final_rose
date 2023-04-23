@@ -4,4 +4,8 @@ class Bachelorette <ApplicationRecord
   
   validates_presence_of :name
   validates_numericality_of :season_number
+
+  def average_age
+    contestants.average("age")
+  end
 end

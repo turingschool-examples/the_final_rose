@@ -1,3 +1,6 @@
 <h1><%= @bachelorette.name %></h1>
 <%= "Season #{@bachelorette.season_number}" %><br/>
 <%= @bachelorette.season.description %>
+<section id="stats">
+  <%= "Average age: #{@bachelorette.average_age}" %>
+</section>

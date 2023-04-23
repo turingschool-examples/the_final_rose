@@ -14,4 +14,30 @@ RSpec.describe "bachelorettes show page", type: :feature do
       expect(page).to have_content("This is the first season")
     end
   end
+
+  describe "stats" do
+    before do
+      test_data
+    end
+
+    it "#average_age on page" do
+      visit bachelorette_path(@bach1)
+
+      within("#stats") do
+        expect(page).to have_content("Average age: 25")
+      end
+
+      visit bachelorette_path(@bach2)
+
+      within("#stats") do
+        expect(page).to have_content("Average age: 40")
+      end
+
+      visit bachelorette_path(@bach3)
+
+      within("#stats") do
+        expect(page).to have_content("Average age: 55")
+      end
+    end
+  end
 end

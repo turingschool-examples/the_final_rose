@@ -1,0 +1,6 @@
+<%= "#{@bachelorette.name}'s contestants" %>
+<% @bachelorette.contestants.each do |contestant| %>
+  <%= link_to contestant.name, contestant_path(contestant) %><br/>
+  <%= contestant.age %><br/>
+  <%= contestant.hometown %>
+<% end %>

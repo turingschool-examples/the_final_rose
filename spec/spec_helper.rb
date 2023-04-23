@@ -53,6 +53,7 @@ def test_data
   @outing7.contestant_outings.create!(contestant_id: @cont8.id)
   @outing8.contestant_outings.create!(contestant_id: @cont8.id)
   @outing8.contestant_outings.create!(contestant_id: @cont9.id)
+  @outing1.contestant_outings.create!(contestant_id: @cont9.id)
 end
 
 RSpec.configure do |config|
